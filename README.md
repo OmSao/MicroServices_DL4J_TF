@@ -29,6 +29,6 @@ This repository contains implementation of NLP and Image Classifier Services as 
 
 ####Other Infos:
 1. Logs of the server can be accessed in <CATALINA_HOME>/logs/catalina.out
-2. All dependency libraries are downloaded by gradle in path: *~/.gradle/caches/modules-2/files-2.1*. For example */home/thlai/.gradle/caches/modules-2/files-2.1*. So, if you want to delete cache, delete cache directory
+2. All dependency libraries are downloaded by gradle in path: *~/.gradle/caches/modules-2/files-2.1*. For example */home/<USER_NAME>/.gradle/caches/modules-2/files-2.1*. So, if you want to delete cache, delete cache directory
 3. To fix lock file error, delete all the *.lock file with following command: *find ~/.gradle -type f -name "*.lock" | while read f; do rm $f; done*
 4. While setting proxy in terminal and browswer, make sure to set port no. as *80* and not *8080*
