@@ -1,0 +1,2 @@
+Once 'gradle --debug clean build' is run, the MicroServices_DL4J_TF.war file will be generated.
+Copy '<project directory>/build/libs/MicroServices_DL4J_TF.war' to 'CATALINA_HOME/webapps'. 'CATALINA_HOME' is the path of Apache tomcat setup.

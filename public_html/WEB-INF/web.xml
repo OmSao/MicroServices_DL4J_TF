@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+	<!--
+	<listener>
+   		<listener-class>example.gat.util.ConsumerThread</listener-class>
+	</listener>
+	  
+	<listener>
+   		<listener-class>example.gat.util.RabbitMQConsumer</listener-class>
+	</listener>
+	
+	  -->
+	  <!--
+	<listener>
+   		<listener-class>example.gat.util.RedisMQConsumer</listener-class>
+	</listener>
+	 -->
+	<servlet>
+		<!--<servlet-name>gatrest</servlet-name>-->
+        <servlet-name>MicroServices</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+<!--    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>-->
+
+        <!-- Register JAX-RS Application, if needed. -->
+        <!--<init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>my.package.MyApplication</param-value>
+        </init-param>-->
+
+        <!-- Register resources and providers under my.package. -->
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <!--<param-name>com.sun.jersey.config.property.packages</param-value>-->
+            <param-value>example.gat.runtime.microservices</param-value>
+        </init-param>
+        
+
+        <!-- Register my custom provider (not needed if it's in my.package) AND LoggingFilter. -->
+        <!--<init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>my.package.SecurityRequestFilter;org.glassfish.jersey.filter.LoggingFilter</param-value>
+        </init-param>-->
+
+        <!-- Enable Tracing support. -->
+        <!--<init-param>
+            <param-name>jersey.config.server.tracing</param-name>
+            <param-value>ALL</param-value>
+        </init-param>-->
+
+        <init-param>
+	    	<param-name>com.sun.jersey.config.feature.TracePerRequest</param-name>
+	    	<param-value>true</param-value>
+		</init-param>
+
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+	</servlet>
+
+    <servlet-mapping>
+    	<!--<servlet-name>gatrest</servlet-name>
+    	<url-pattern>/api/*</url-pattern>  -->
+        <servlet-name>MicroServices</servlet-name>
+        <url-pattern>/get/*</url-pattern>
+    </servlet-mapping>
+        
+</web-app>
